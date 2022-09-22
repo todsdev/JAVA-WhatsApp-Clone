@@ -1,0 +1,194 @@
+[
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_adapter_selected_group.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/adapter_selected_group.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_fragment_contacts.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/fragment_contacts.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_background_chat_message.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/background_chat_message.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_toolbar.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/toolbar.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_adapter_message_receiver.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/adapter_message_receiver.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/menu_menu_main.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/menu/menu_main.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_bg_chat.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/bg_chat.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_search_white.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_search_white.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_register_group.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_register_group.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_logo.png.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/logo.png"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_edit_green.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_edit_green.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_profile.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_check_white_24.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_check_white_24.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_foward_white_24.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_foward_white_24.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_register.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_register.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_toolbar_chats.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/toolbar_chats.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_padrao.jpg.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/padrao.jpg"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_usuario.png.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/usuario.png"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_main.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_album_black.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_album_black.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_camera_black.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_camera_black.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_fragment_chats.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/fragment_chats.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_login.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_chat.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_chat.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_activity_group.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/activity_group.xml"
+    },
+    {
+        "merged": "com.tods.projetowhatsapp-merged_res-39:/layout_adapter_message_sender.xml.flat",
+        "source": "com.tods.projetowhatsapp-main-41:/layout/adapter_message_sender.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/xml_backup_rules.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_background_chat.png.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/background_chat.png"
+    },
+    {
+        "merged": "com.tods.projetowhatsapp-merged_res-39:/layout_adapter_message_receiver.xml.flat",
+        "source": "com.tods.projetowhatsapp-main-41:/layout/adapter_message_receiver.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_adapter_recyclerunit.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/adapter_recyclerunit.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_icon_group.png.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/icon_group.png"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/layout_adapter_message_sender.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/layout/adapter_message_sender.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/drawable_ic_send_white.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/drawable/ic_send_white.xml"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-merged_res-39:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/thiagorodrigues/.gradle/daemon/7.3.3/com.tods.projetowhatsapp-main-41:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

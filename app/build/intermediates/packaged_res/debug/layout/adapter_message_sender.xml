@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:paddingRight="10dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="1dp">
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/background_chat_message"
+        android:backgroundTint="@color/bg_sender"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/textUserNameExhibition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="start"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imagePhotoChat"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:padding="20dp"
+            app:srcCompat="@drawable/padrao" />
+
+        <TextView
+            android:id="@+id/textMessageChat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            android:padding="1dp"
+            android:text="Message"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

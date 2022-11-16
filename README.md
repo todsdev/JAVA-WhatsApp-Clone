@@ -1,5 +1,7 @@
 <!-- # Title -->
 # WhatsApp Clone
+![Demo](https://play-lh.googleusercontent.com/aZrXAunkovhf0630Ykz1A7h2rzFX_dErd6fRiB7fNKU_DkNtetTquEra1bjc3sR2kLs)
+
 
 <!-- # Short Description -->
 
@@ -94,6 +96,14 @@ public void registerUser(User user){
 ```
 
 Example of the code needed to register the user in the **Google Firebase** platform and avoid the exceptions of the registration, such as *Week Password*, *Invalid Email*, *Already Registered Email* and any other possibilities.
+
+---
+
+# Libraries
+>- [Material Search View](https://github.com/MiguelCatalan/MaterialSearchView)
+>- [Circle Image View](https://github.com/hdodenhof/CircleImageView)
+>- [Smart Tab Layout](https://github.com/ogaclejapan/SmartTabLayout)
+>- [Google Firebase](https://firebase.google.com)
 
 ---
 

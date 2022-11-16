@@ -12,7 +12,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -63,7 +62,6 @@ public class ChatActivity extends AppCompatActivity {
     private ImageView buttonCamera;
     private static final int SELECTION_CAMERA = 100;
     private Group group;
-    //IDENTIFICADOR DE USUÁRIOS PARA REMETENTE E DESTINATÁRIO
     private String idUserSender;
     private String idUserReceiver;
 
@@ -71,55 +69,44 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        Toolbar toolbar = findViewById(R.id.toolbar_chats);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        configToolbarSettings();
+        configInitialSettings();
+        configRecoverUsers();
+        configRecoverUserSender();
+        configRecyclerView();
+        configCameraListener();
+    }
+
+    private void configInitialSettings() {
         imageContactsChat = findViewById(R.id.imageContactsChat);
         textContactsNameChat = findViewById(R.id.textContactsNameChat);
         editMessage = findViewById(R.id.editTextMessage);
         recyclerMessages = findViewById(R.id.recyclerMessages);
         buttonCamera = findViewById(R.id.buttonSendPhotoChat);
-        //RECUPERAR DADOS DO USUÁRIO REMETENTE E DESTINATÁRIO
+    }
+
+    private void configRecoverUsers() {
         idUserSender = UserFirebase.recoverUserId();
         senderUser = UserFirebase.getDataLoggedUser();
-        //RECUPERAR USUÁRIOS DESTINATÁRIO
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null){
-            if (bundle.containsKey("chatContacts")){
-                receiverUser = (User) bundle.getSerializable("chatContacts");
-                textContactsNameChat.setText(receiverUser.getName());
-                String photo = receiverUser.getPhoto();
-                if (photo != null){
-                    Uri uri = Uri.parse(receiverUser.getPhoto());
-                    Glide.with(ChatActivity.this).load(uri).timeout(6000).into(imageContactsChat);
-                } else {
-                    imageContactsChat.setImageResource(R.drawable.padrao);
-                }
-                //RECUPERAR DADOS DO USUÁRIO DESTINATÁRIO
-                idUserReceiver = Base64Custom.codifyBase64(receiverUser.getEmail());
-            } else {
-                group = (Group) bundle.getSerializable("chatGroup");
-                idUserReceiver = group.getId();
-                textContactsNameChat.setText(group.getName());
-                String photo = group.getPhoto();
-                if (photo != null) {
-                    Uri uri = Uri.parse(photo);
-                    Glide.with(ChatActivity.this).load(uri).timeout(6000).into(imageContactsChat);
-                } else {
-                    imageContactsChat.setImageResource(R.drawable.padrao);
-                }
-            }
-        }
-        //CONFIGURAR ADAPTER
+    }
+
+    private void configToolbarSettings() {
+        Toolbar toolbar = findViewById(R.id.toolbar_chats);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    private void configRecyclerView() {
         adapter = new MessagesAdapter(messages, getApplicationContext());
-        //CONFIGURAR RECYCLERVIEW
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerMessages.setLayoutManager(layoutManager);
         recyclerMessages.setHasFixedSize(true);
         recyclerMessages.setAdapter(adapter);
-        //EVENTO DE CLIQUE NA CÂMERA
+    }
+
+    private void configCameraListener() {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,10 +120,38 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
         });
-        //FIREBASE
         storage = FirebaseSettings.getStorageReference();
         database = FirebaseSettings.getFirebaseDatabase();
         msgRef = database.child("messages").child(idUserSender).child(idUserReceiver);
+    }
+
+    private void configRecoverUserSender() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            if (bundle.containsKey("chatContacts")){
+                receiverUser = (User) bundle.getSerializable("chatContacts");
+                textContactsNameChat.setText(receiverUser.getName());
+                String photo = receiverUser.getPhoto();
+                if (photo != null){
+                    Uri uri = Uri.parse(receiverUser.getPhoto());
+                    Glide.with(ChatActivity.this).load(uri).timeout(6000).into(imageContactsChat);
+                } else {
+                    imageContactsChat.setImageResource(R.drawable.standard);
+                }
+                idUserReceiver = Base64Custom.codifyBase64(receiverUser.getEmail());
+            } else {
+                group = (Group) bundle.getSerializable("chatGroup");
+                idUserReceiver = group.getId();
+                textContactsNameChat.setText(group.getName());
+                String photo = group.getPhoto();
+                if (photo != null) {
+                    Uri uri = Uri.parse(photo);
+                    Glide.with(ChatActivity.this).load(uri).timeout(6000).into(imageContactsChat);
+                } else {
+                    imageContactsChat.setImageResource(R.drawable.standard);
+                }
+            }
+        }
     }
 
     @Override
@@ -151,13 +166,10 @@ public class ChatActivity extends AppCompatActivity {
                         break;
                 }
                 if (image != null){
-                    //RECUPERAR DADOS DA IMAGEM PARA O FIREBASE
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     image.compress(Bitmap.CompressFormat.JPEG, 70, baos);
                     byte[] imageData = baos.toByteArray();
-                    //CRIAR NOME IMAGEM ALEATÓRIO QUE NÃO SE REPETE
                     String nameImage = UUID.randomUUID().toString();
-                    //CONFIGURAR REFERÊNCIA DO FIREBASE
                     final StorageReference imageRef =
                             storage.child("images").child("photos").child(idUserSender).child(nameImage);
                     UploadTask uploadTask = imageRef.putBytes(imageData);
@@ -170,23 +182,18 @@ public class ChatActivity extends AppCompatActivity {
                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            //RECUPERANDO URL DA IMAGEM
                             imageRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
                                  String url = task.getResult().toString();
                                     if (receiverUser != null){
-                                        //MENSAGEM CONVENCIONAL
                                         Messages message = new Messages();
                                         message.setIdUser(idUserSender);
                                         message.setMessage("image.jpeg");
                                         message.setImage(url.toString());
-                                        //SALVANDO IMAGEM PARA O REMETENTE
                                         saveMessage(idUserSender, idUserReceiver, message);
-                                        //SALVANDO IMAGEM PARA O DESTINATÁRIO
                                         saveMessage(idUserReceiver, idUserSender, message);
                                     } else {
-                                        //MENSAGEM EM GRUPO
                                         for (User member: group.getMembers()){
                                             String idGroupSender = Base64Custom.codifyBase64(member.getEmail());
                                             String idGroupLoggedUser = UserFirebase.recoverUserId();
@@ -195,9 +202,7 @@ public class ChatActivity extends AppCompatActivity {
                                             message.setMessage("image.jpeg");
                                             message.setImage(url);
                                             message.setName(senderUser.getName());
-                                            //SALVAR MENSAGEM PARA O MEMBRO
                                             saveMessage(idGroupSender, idUserReceiver, message);
-                                            //SALVAR CONVERSA
                                             saveChat(idGroupSender, idUserReceiver, receiverUser, message, true);
                                         }
                                     }
@@ -220,13 +225,9 @@ public class ChatActivity extends AppCompatActivity {
                 Messages message = new Messages();
                 message.setIdUser(idUserSender);
                 message.setMessage(textMessage);
-                //SALVAR MENSAGEM PARA O REMETENTE
                 saveMessage(idUserSender, idUserReceiver, message);
-                //SALVAR MENSAGEM PARA O DESTINATÁRIO
                 saveMessage(idUserReceiver, idUserSender, message);
-                //SALVAR CONVERSA PARA REMETENTE
                 saveChat(idUserSender, idUserReceiver, receiverUser, message, false);
-                //SALVAR CONVERSA PARA DESTINATÁRIO
                 saveChat(idUserReceiver, idUserSender, senderUser, message, false);
             } else {
                 for (User member: group.getMembers()){
@@ -236,9 +237,7 @@ public class ChatActivity extends AppCompatActivity {
                     message.setIdUser(idGroupLoggedUser);
                     message.setMessage(textMessage);
                     message.setName(senderUser.getName());
-                    //SALVAR MENSAGEM PARA O MEMBRO
                     saveMessage(idGroupSender, idUserReceiver, message);
-                    //SALVAR CONVERSA
                     saveChat(idGroupSender, idUserReceiver, receiverUser, message, true);
                 }
             }
@@ -255,11 +254,9 @@ public class ChatActivity extends AppCompatActivity {
         chat.setIdReceiver(idReceiver);
         chat.setLastMessage(msg.getMessage());
         if (isGroup){
-            //CONVERSA DE GRUPO
             chat.setIsGroup("true");
             chat.setGroup(group);
         } else {
-            //CONVERSA CONVENCIONAL
             chat.setUserExhibition(userExhibition);
             chat.setIsGroup("false");
         }
@@ -267,12 +264,9 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void saveMessage (String idSender, String idReceiver, Messages msg){
-
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
         msgRef = database.child("messages");
         msgRef.child(idSender).child(idReceiver).push().setValue(msg);
-
-        //LIMPAR TEXTO
         editMessage.setText("");
     }
 
@@ -281,12 +275,10 @@ public class ChatActivity extends AppCompatActivity {
         celMessages = msgRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
                 Messages message = snapshot.getValue(Messages.class);
                 messages.add(message);
                 recyclerMessages.smoothScrollToPosition(messages.size() + 1);
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

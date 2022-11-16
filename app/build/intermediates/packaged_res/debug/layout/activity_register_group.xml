@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="0dp"
     tools:context=".activity.RegisterGroupActivity">
 
     <include
@@ -19,49 +18,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="@dimen/default_activity_register_group_layout_top_padding">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="@dimen/default_activity_register_group_layout_top_inner_padding">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageGroup"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/padrao">
-
+                android:layout_width="@dimen/default_activity_register_group_layout_top_image_width"
+                android:layout_height="@dimen/default_activity_register_group_layout_top_image_height"
+                android:src="@drawable/standard">
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <EditText
                 android:id="@+id/editGroupName"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/default_activity_register_group_layout_top_text_group_width"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="@dimen/default_activity_register_group_layout_top_text_group_margin_start"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Nome do grupo"
+                android:hint="@string/group_name"
                 android:inputType="textPersonName" />
-
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="@dimen/default_activity_register_group_layout_bot_padding">
 
         <TextView
             android:id="@+id/textTotalGroupMembers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Participantes: 0"
-            android:textSize="18sp"
+            android:text="@string/member_number"
+            android:textSize="@dimen/default_activity_register_group_layout_bot_text_title_size"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -71,18 +67,19 @@
             android:layout_weight="1" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_confirmgroup"
+            android:id="@+id/fab_confirm_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="@dimen/default_activity_register_group_layout_bot_fab_margin_end"
+            android:layout_marginBottom="@dimen/default_activity_register_group_layout_bot_fab_margin_bottom"
             android:layout_weight="0"
             android:backgroundTint="@color/background_app"
             android:clickable="true"
-            android:elevation="1dp"
+            android:elevation="@dimen/default_activity_register_group_layout_bot_fab_elevation"
             android:tint="@color/background_app"
             app:fabSize="normal"
-            app:srcCompat="@drawable/ic_check_white_24" />
+            app:srcCompat="@drawable/ic_check_white_24"
+            android:focusable="true" />
     </LinearLayout>
 </LinearLayout>

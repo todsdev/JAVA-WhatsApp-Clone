@@ -19,7 +19,6 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SelectedGroupAdapter extends RecyclerView.Adapter<SelectedGroupAdapter.MyViewHolder> {
-
     private List<User> contacts;
     private Context context;
 
@@ -38,14 +37,13 @@ public class SelectedGroupAdapter extends RecyclerView.Adapter<SelectedGroupAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         User user = contacts.get(position);
         holder.name.setText(user.getName());
         if (user.getPhoto() != null){
             Uri uri = Uri.parse(user.getPhoto());
             Glide.with(context).load(uri).timeout(6000).into(holder.photo);
         } else {
-            holder.photo.setImageResource(R.drawable.padrao);
+            holder.photo.setImageResource(R.drawable.standard);
         }
     }
 
@@ -55,7 +53,6 @@ public class SelectedGroupAdapter extends RecyclerView.Adapter<SelectedGroupAdap
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
         CircleImageView photo;
         TextView name;
 

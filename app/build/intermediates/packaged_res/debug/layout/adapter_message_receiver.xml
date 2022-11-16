@@ -4,46 +4,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:paddingRight="10dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginTop="1dp">
+    android:padding="@dimen/default_adapter_message_receiver_padding"
+    android:paddingEnd="@dimen/default_adapter_message_receiver_padding_end"
+    android:layout_marginEnd="@dimen/default_adapter_message_receiver_margin_end"
+    android:layout_marginTop="@dimen/default_adapter_message_receiver_margin_top">
 
     <LinearLayout
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="@drawable/background_chat_message"
         android:backgroundTint="@color/gray"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="@dimen/default_adapter_message_receiver_inner_padding">
 
         <TextView
             android:id="@+id/textUserNameExhibition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="@dimen/default_adapter_message_receiver_text_username_margin_start"
+            android:layout_marginTop="@dimen/default_adapter_message_receiver_text_username_margin_top"
+            android:layout_marginEnd="@dimen/default_adapter_message_receiver_text_username_margin_end"
             android:gravity="start"
-            android:textSize="16sp" />
+            android:textSize="@dimen/default_adapter_message_receiver_text_username_size" />
 
         <ImageView
             android:id="@+id/imagePhotoChat"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:padding="20dp"
-            app:srcCompat="@drawable/padrao" />
+            android:layout_width="@dimen/default_adapter_message_receiver_image_width"
+            android:layout_height="@dimen/default_adapter_message_receiver_image_height"
+            android:padding="@dimen/default_adapter_message_receiver_image_padding"
+            app:srcCompat="@drawable/standard" />
 
         <TextView
             android:id="@+id/textMessageChat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            android:padding="1dp"
-            android:text="Message"
-            android:textSize="18sp" />
+            android:layout_margin="@dimen/default_adapter_message_receiver_text_message_size"
+            android:padding="@dimen/default_adapter_message_receiver_text_message_padding"
+            android:text="@string/message"
+            android:textSize="@dimen/default_adapter_message_receiver_text_message_size" />
     </LinearLayout>
 
 </RelativeLayout>

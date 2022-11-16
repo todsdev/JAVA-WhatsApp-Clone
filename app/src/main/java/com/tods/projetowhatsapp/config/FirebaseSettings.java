@@ -12,7 +12,6 @@ public class FirebaseSettings {
     private static FirebaseAuth auth;
     private static StorageReference storage;
 
-    //RETORNAR INSTÂNCIA DO FIREBASEDATABASE
     public static DatabaseReference getFirebaseDatabase(){
         if (database == null){
             database = FirebaseDatabase.getInstance().getReference();
@@ -20,7 +19,6 @@ public class FirebaseSettings {
         return database;
     }
 
-    //RETORNAR INSTÃNCIA DO FIREBASEAUTH
     public static FirebaseAuth getFirebaseAuth(){
         if (auth == null){
             auth = FirebaseAuth.getInstance();
@@ -28,7 +26,6 @@ public class FirebaseSettings {
         return auth;
     }
 
-    //RETORNAR INSTÂNCIA DO STORAGE
     public static StorageReference getStorageReference(){
         if (storage == null){
             storage = FirebaseStorage.getInstance().getReference();

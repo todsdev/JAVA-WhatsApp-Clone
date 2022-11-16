@@ -40,10 +40,8 @@ public class ChatsFragment extends Fragment {
     private DatabaseReference database;
     private DatabaseReference chatRef;
     private ChildEventListener celChats;
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     private String mParam1;
     private String mParam2;
 
@@ -73,16 +71,28 @@ public class ChatsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
+        configRecyclerView(view);
+        configClickEvent();
+        return configChatRef(view);
+    }
+
+    private void configRecyclerView(View view) {
         recyclerChats = view.findViewById(R.id.recyclerChatList);
-        //CONFIGURAR ADAPTER
         adapter = new ChatsAdapter(chatList, getActivity());
-        //CONFIGURAR RECYCLERVIEW
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerChats.setLayoutManager(layoutManager);
         recyclerChats.setHasFixedSize(true);
         recyclerChats.setAdapter(adapter);
+    }
 
-        //EVENTO DE CLIQUE
+    private View configChatRef(View view) {
+        String idUser = UserFirebase.recoverUserId();
+        database = FirebaseSettings.getFirebaseDatabase();
+        chatRef = database.child("chats").child(idUser);
+        return view;
+    }
+
+    private void configClickEvent() {
         recyclerChats.addOnItemTouchListener(new RecyclerItemClickListener(
                 getActivity(), recyclerChats, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -109,11 +119,6 @@ public class ChatsFragment extends Fragment {
             }
         }
         ));
-        //CONFIGURA CHATREF
-        String idUser = UserFirebase.recoverUserId();
-        database = FirebaseSettings.getFirebaseDatabase();
-        chatRef = database.child("chats").child(idUser);
-        return view;
     }
 
     public void recoverChats(){
@@ -121,7 +126,6 @@ public class ChatsFragment extends Fragment {
          celChats = chatRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                //RECUPERAR CONVERSAS
                 Chat chat = snapshot.getValue(Chat.class);
                 chatList.add(chat);
                 adapter.notifyDataSetChanged();

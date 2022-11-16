@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size5dp">5dp</dimen>
+    <dimen name="size16dp">16dp</dimen>
+    <dimen name="size16sp">16sp</dimen>
+    <dimen name="size40dp">40dp</dimen>
+    <dimen name="size12dp">12dp</dimen>
+    <dimen name="size10dp">10dp</dimen>
+    <dimen name="size30dp">30dp</dimen>
+    <dimen name="size24dp">24dp</dimen>
+    <dimen name="size0dp">0dp</dimen>
+    <dimen name="size50dp">50dp</dimen>
+    <dimen name="size6dp">6dp</dimen>
+    <dimen name="size55dp">55dp</dimen>
+    <dimen name="size90dp">90dp</dimen>
+    <dimen name="size1dp">1dp</dimen>
+    <dimen name="size20dp">20dp</dimen>
+    <dimen name="size18dp">18dp</dimen>
+    <dimen name="size200dp">200dp</dimen>
+    <dimen name="size108dp">108dp</dimen>
+    <dimen name="size60dp">60dp</dimen>
+
+    <dimen name="default_margin">@dimen/size16dp</dimen>
+    <dimen name="default_user_name_text_size">@dimen/size16sp</dimen>
+    <dimen name="default_user_image_width">@dimen/size40dp</dimen>
+    <dimen name="default_user_image_height">@dimen/size40dp</dimen>
+    <dimen name="default_user_image_margin_end">@dimen/size12dp</dimen>
+
+    <dimen name="default_adapter_selected_group_padding">@dimen/size10dp</dimen>
+    <dimen name="default_adapter_selected_group_inner_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_selected_group_image_width">@dimen/size50dp</dimen>
+    <dimen name="default_adapter_selected_group_image_height">@dimen/size50dp</dimen>
+    <dimen name="default_adapter_selected_group_text_width">@dimen/size90dp</dimen>
+    <dimen name="default_adapter_selected_group_text_size">@dimen/size12dp</dimen>
+
+    <dimen name="default_adapter_recycler_unit_padding_start">@dimen/size16dp</dimen>
+    <dimen name="default_adapter_recycler_unit_padding_end">@dimen/size16dp</dimen>
+    <dimen name="default_adapter_recycler_unit_divider_margin_start">@dimen/size55dp</dimen>
+    <dimen name="default_adapter_recycler_unit_divider_margin_end">@dimen/size30dp</dimen>
+    <dimen name="default_adapter_recycler_unit_padding_top">@dimen/size16dp</dimen>
+    <dimen name="default_adapter_recycler_unit_padding_bot">@dimen/size16dp</dimen>
+    <dimen name="default_adapter_recycler_unit_image_width">@dimen/size50dp</dimen>
+    <dimen name="default_adapter_recycler_unit_image_height">@dimen/size50dp</dimen>
+    <dimen name="default_adapter_recycler_unit_inner_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_recycler_unit_divider_height">@dimen/size1dp</dimen>
+
+    <dimen name="default_adapter_message_sender_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_inner_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_padding_end">@dimen/size10dp</dimen>
+    <dimen name="default_adapter_message_sender_margin_start">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_margin_top">@dimen/size1dp</dimen>
+    <dimen name="default_adapter_message_sender_text_username_margin_start">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_text_username_margin_top">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_text_username_margin_end">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_sender_text_username_size">@dimen/size16dp</dimen>
+    <dimen name="default_adapter_message_sender_image_width">@dimen/size200dp</dimen>
+    <dimen name="default_adapter_message_sender_image_height">@dimen/size200dp</dimen>
+    <dimen name="default_adapter_message_sender_image_padding">@dimen/size20dp</dimen>
+    <dimen name="default_adapter_message_sender_text_message_size">@dimen/size18dp</dimen>
+    <dimen name="default_adapter_message_sender_text_message_padding">@dimen/size1dp</dimen>
+    <dimen name="default_adapter_message_sender_text_message_margin">@dimen/size6dp</dimen>
+
+    <dimen name="default_adapter_message_receiver_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_receiver_inner_padding">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_receiver_padding_end">@dimen/size10dp</dimen>
+    <dimen name="default_adapter_message_receiver_margin_end">@dimen/size10dp</dimen>
+    <dimen name="default_adapter_message_receiver_margin_top">@dimen/size1dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_username_margin_start">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_username_margin_end">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_username_margin_top">@dimen/size5dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_username_size">@dimen/size16sp</dimen>
+    <dimen name="default_adapter_message_receiver_image_width">@dimen/size200dp</dimen>
+    <dimen name="default_adapter_message_receiver_image_height">@dimen/size200dp</dimen>
+    <dimen name="default_adapter_message_receiver_image_padding">@dimen/size20dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_message_size">@dimen/size18dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_message_padding">@dimen/size1dp</dimen>
+    <dimen name="default_adapter_message_receiver_text_message_margin">@dimen/size6dp</dimen>
+
+    <dimen name="default_activity_register_group_layout_top_padding">@dimen/size10dp</dimen>
+    <dimen name="default_activity_register_group_layout_top_inner_padding">@dimen/size5dp</dimen>
+    <dimen name="default_activity_register_group_layout_top_image_height">@dimen/size60dp</dimen>
+    <dimen name="default_activity_register_group_layout_top_image_width">@dimen/size60dp</dimen>
+    <dimen name="default_activity_register_group_layout_top_text_group_width">@dimen/size0dp</dimen>
+    <dimen name="default_activity_register_group_layout_top_text_group_margin_start">@dimen/size5dp</dimen>
+    <dimen name="default_activity_register_group_layout_bot_padding">@dimen/size10dp</dimen>
+    <dimen name="default_activity_register_group_layout_bot_text_title_size">@dimen/size18dp</dimen>
+    <dimen name="default_activity_register_group_layout_bot_fab_margin_end">@dimen/size5dp</dimen>
+    <dimen name="default_activity_register_group_layout_bot_fab_margin_bottom">@dimen/size5dp</dimen>
+    <dimen name="default_activity_register_group_layout_bot_fab_elevation">@dimen/size1dp</dimen>
+
+    <dimen name="icon_size">@dimen/size24dp</dimen>
+    <dimen name="launcher_background">@dimen/size108dp</dimen>
+    <dimen name="launcher_foreground">@dimen/size108dp</dimen>
+
+</resources>

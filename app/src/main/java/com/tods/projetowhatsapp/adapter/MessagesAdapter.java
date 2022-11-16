@@ -60,7 +60,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             } else {
                 holder.name.setVisibility(View.GONE);
             }
-            //ESCONDER TEXTO
             holder.message.setVisibility(View.GONE);
         } else {
             holder.message.setVisibility(View.VISIBLE);
@@ -71,7 +70,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
                 holder.name.setVisibility(View.GONE);
             }
             holder.message.setText(msg);
-            //ESCONDER A IMAGEM
             holder.image.setVisibility(View.GONE);
         }
     }
@@ -91,7 +89,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         return TYPE_RECEIVER;
     }
 
-    //INNER CLASS
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView message;
         ImageView image;

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="16dp"
-    android:paddingTop="6dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="6dp"
+    android:paddingStart="@dimen/default_adapter_recycler_unit_padding_start"
+    android:paddingTop="@dimen/default_adapter_recycler_unit_padding_top"
+    android:paddingEnd="@dimen/default_adapter_recycler_unit_padding_end"
+    android:paddingBottom="@dimen/default_adapter_recycler_unit_padding_bot"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,22 +16,22 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageContacts"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/padrao" />
+        android:layout_width="@dimen/default_adapter_recycler_unit_image_width"
+        android:layout_height="@dimen/default_adapter_recycler_unit_image_height"
+        android:src="@drawable/standard" />
 
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="@dimen/default_adapter_recycler_unit_inner_padding">
 
             <TextView
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome"
+            android:text="@string/name"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/editSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-mail"
+            android:text="@string/e_mail"
             android:textColor="@color/black" />
         </LinearLayout>
 
@@ -47,11 +47,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/default_adapter_recycler_unit_divider_height"
         android:background="?android:attr/listDivider"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="30dp"
-        >
+        android:layout_marginStart="@dimen/default_adapter_recycler_unit_divider_margin_start"
+        android:layout_marginEnd="@dimen/default_adapter_recycler_unit_divider_margin_end">
     </ImageView>
 
 </LinearLayout>

@@ -4,7 +4,7 @@ ADDED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml:2:1-68:12
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml:2:1-68:12
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml:2:1-68:12
-MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/f1c5a8d906767a5bbb7dea49b39eb10a/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/0e73034001971dabc050e5e6b8c0a87d/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.material:material:1.6.1] /Users/thiagorodrigues/.gradle/caches/transforms-3/8a8178b2b5f1533979a525c156118da5/transformed/material-1.6.1/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/thiagorodrigues/.gradle/caches/transforms-3/008bb01919eacaad75cee55b00cad0d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/8875d35c4b574879fa25f780bc410e28/transformed/jetified-appcompat-resources-1.5.0/AndroidManifest.xml:17:1-22:12
@@ -133,8 +133,8 @@ ADDED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/
 		ADDED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml:20:21-69
 application
 ADDED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml:24:5-66:19
-MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/f1c5a8d906767a5bbb7dea49b39eb10a/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:11:5-20
-MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/f1c5a8d906767a5bbb7dea49b39eb10a/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:11:5-20
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/0e73034001971dabc050e5e6b8c0a87d/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:11:5-20
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/0e73034001971dabc050e5e6b8c0a87d/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.material:material:1.6.1] /Users/thiagorodrigues/.gradle/caches/transforms-3/8a8178b2b5f1533979a525c156118da5/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.6.1] /Users/thiagorodrigues/.gradle/caches/transforms-3/8a8178b2b5f1533979a525c156118da5/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/thiagorodrigues/.gradle/caches/transforms-3/008bb01919eacaad75cee55b00cad0d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -281,8 +281,8 @@ uses-sdk
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml
 INJECTED from /Users/thiagorodrigues/AndroidStudioProjects/ProjetoWhatsApp/app/src/main/AndroidManifest.xml
-MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/f1c5a8d906767a5bbb7dea49b39eb10a/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/f1c5a8d906767a5bbb7dea49b39eb10a/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/0e73034001971dabc050e5e6b8c0a87d/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /Users/thiagorodrigues/.gradle/caches/transforms-3/0e73034001971dabc050e5e6b8c0a87d/transformed/jetified-materialsearchview-1.4.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.material:material:1.6.1] /Users/thiagorodrigues/.gradle/caches/transforms-3/8a8178b2b5f1533979a525c156118da5/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.6.1] /Users/thiagorodrigues/.gradle/caches/transforms-3/8a8178b2b5f1533979a525c156118da5/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/thiagorodrigues/.gradle/caches/transforms-3/008bb01919eacaad75cee55b00cad0d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41

@@ -54,7 +54,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
                 holder.email.setVisibility(View.GONE);
                 holder.name.setTextSize(16);
             } else {
-                holder.photo.setImageResource(R.drawable.padrao);
+                holder.photo.setImageResource(R.drawable.standard);
             }
         }
     }
@@ -64,7 +64,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         return contacts.size();
     }
 
-    //INNER CLASS
     public class MyViewHolder extends RecyclerView.ViewHolder{
         CircleImageView photo;
         TextView name, email;

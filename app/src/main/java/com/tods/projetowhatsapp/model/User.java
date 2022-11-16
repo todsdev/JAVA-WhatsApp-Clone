@@ -2,7 +2,6 @@ package com.tods.projetowhatsapp.model;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
-import com.google.firebase.database.FirebaseDatabase;
 import com.tods.projetowhatsapp.config.FirebaseSettings;
 
 import java.io.Serializable;
@@ -10,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User implements Serializable {
-
     private String name;
     private String email;
     private String password;
@@ -21,35 +19,25 @@ public class User implements Serializable {
     }
 
     public void save(){
-
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
         DatabaseReference user = database.child("user").child(getId());
-
         user.setValue(this);
-
     }
 
     public void update(){
-
         String userId = UserFirebase.recoverUserId();
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
-
         DatabaseReference userRef = database.child("user").child(userId);
-
-        Map<String, Object> userValue = converToMap();
+        Map<String, Object> userValue = configMap();
         userRef.updateChildren(userValue);
-
     }
 
     @Exclude
-    public Map<String, Object> converToMap(){
-
+    public Map<String, Object> configMap(){
         HashMap<String, Object> userMap = new HashMap<>();
-
         userMap.put("email", getEmail());
         userMap.put("name", getName());
         userMap.put("photo", getPhoto());
-
         return userMap;
     }
 

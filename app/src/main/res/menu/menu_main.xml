@@ -5,18 +5,18 @@
 
     <item
         android:id="@+id/menuSearch"
-        android:title="Search"
+        android:title="@string/search"
         android:icon="@drawable/ic_search_white"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/menuProfile"
-        android:title="Perfil"
+        android:title="@string/profile"
         app:showAsAction="never"
         />
     <item
         android:id="@+id/menuLogOut"
-        android:title="Sair"
+        android:title="@string/sign_out"
         app:showAsAction="never"
         />
 </menu>

@@ -45,7 +45,6 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Chat chat = chats.get(position);
         holder.lastMessage.setText(chat.getLastMessage());
-        //CONVERSA SENDO GROUP
         if (chat.getIsGroup().equals("true")){
             Group group = chat.getGroup();
             holder.name.setText(group.getName());
@@ -53,9 +52,8 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.MyViewHolder
                 Uri uri = Uri.parse(group.getPhoto());
                 Glide.with(context).load(uri).timeout(6000).into(holder.photo);
             } else {
-                holder.photo.setImageResource(R.drawable.padrao);
+                holder.photo.setImageResource(R.drawable.standard);
             }
-        //CONVERSA SENDO CHAT
         } else {
             User user = chat.getUserExhibition();
             if (user != null){
@@ -65,7 +63,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.MyViewHolder
                     Uri uri = Uri.parse(user.getPhoto());
                     Glide.with(context).load(uri).timeout(6000).into(holder.photo);
                 } else {
-                    holder.photo.setImageResource(R.drawable.padrao);
+                    holder.photo.setImageResource(R.drawable.standard);
                 }
             }
         }

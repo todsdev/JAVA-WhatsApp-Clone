@@ -8,15 +8,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Group implements Serializable {
-
     private String id, name, photo;
     private List<User> members;
 
     public Group() {
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
         DatabaseReference groupRef = database.child("groups");
-
-        //GETKEY PARA RECUPERAR CHAVE CRIADA PELO PUSH
         String idFirebase = groupRef.push().getKey();
         setId(idFirebase);
     }
@@ -25,12 +22,9 @@ public class Group implements Serializable {
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
         DatabaseReference groupRef = database.child("groups");
         groupRef.child(getId()).setValue(this);
-
-        //SALVAR CONVERSAS PARA MEMBRO DO GRUPO
         for (User member: getMembers()){
             String idSender = Base64Custom.codifyBase64(member.getEmail());
             String idReceiver = getId();
-
             Chat chat = new Chat();
             chat.setIdSender(idSender);
             chat.setIdReceiver(idReceiver);

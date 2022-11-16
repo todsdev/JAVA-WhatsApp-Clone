@@ -25,31 +25,51 @@ import com.tods.projetowhatsapp.fragment.ContactsFragment;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private MaterialSearchView searchView;
+    private FragmentPagerItemAdapter adapterFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        configToolbar();
+        configInitialSettings();
+        configTabs();
+    }
+
+    private void configInitialSettings() {
+        auth = FirebaseSettings.getFirebaseAuth();
+        searchView = findViewById(R.id.search_view);
+    }
+
+    private void configToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("WhatsApp");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-        auth = FirebaseSettings.getFirebaseAuth();
-        searchView = findViewById(R.id.search_view);
-        //CONFIGURAR ABAS
-        final FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
+    }
+
+    private void configTabs() {
+        adapterFragment = configAdapterFragment();
+        final ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(adapterFragment);
+        SmartTabLayout viewPagerTab = findViewById(R.id.viewPagerTab);
+        viewPagerTab.setViewPager(viewPager);
+        configSearchListener(adapterFragment);
+        configSearch(adapterFragment, viewPager);
+    }
+
+    @NonNull
+    private FragmentPagerItemAdapter configAdapterFragment() {
+        return new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems
                         .with(this)
                         .add("Chats", ChatsFragment.class)
                         .add("Contacts", ContactsFragment.class)
                         .create());
-        final ViewPager viewPager = findViewById(R.id.viewPager);
-        viewPager.setAdapter(adapter);
-        SmartTabLayout viewPagerTab = findViewById(R.id.viewPagerTab);
-        viewPagerTab.setViewPager(viewPager);
+    }
 
-        //LISTENER PARA O SEARCH VIEW (RECARREGAR TODA A LISTAGEM APÓS FECHAMENTO DO SEARCHVIEW)
+    private void configSearchListener(FragmentPagerItemAdapter adapter) {
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
@@ -62,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 fragment.reloadChats();
             }
         });
+    }
 
-        //ADICIONANDO MÉTODO DE PESQUISA
+    private void configSearch(FragmentPagerItemAdapter adapter, ViewPager viewPager) {
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -72,10 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //VERIFICAÇÃO PARA SABER SE É CONVERSA OU CONTATO
                 switch (viewPager.getCurrentItem()){
                     case 0:
-                        //ACESSANDO INFORMAÇÃO DO FRAGMENT
                         ChatsFragment chatsFragment = (ChatsFragment) adapter.getPage(0);
                         if (newText != null && !newText.isEmpty()){
                             chatsFragment.searchChats(newText.toLowerCase());
@@ -84,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case 1:
-                        //ACESSANDO INFORMAÇÃO DO FRAGMENT
                         ContactsFragment contactsFragment = (ContactsFragment) adapter.getPage(1);
                         if (newText != null && !newText.isEmpty()){
                             contactsFragment.searchContacts(newText.toLowerCase());
@@ -100,10 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-        //CONFIGURAR PESQUISA (NECESSITA ADICIONAR JITPACK + JCENTER // ENABLEJETIFIER)
         MenuItem item = menu.findItem(R.id.menuSearch);
         searchView.setMenuItem(item);
         return super.onCreateOptionsMenu(menu);
@@ -111,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()){
             case R.id.menuLogOut:
                 logOutUser();
@@ -126,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logOutUser(){
-
         try {
             auth.signOut();
         } catch (Exception e){

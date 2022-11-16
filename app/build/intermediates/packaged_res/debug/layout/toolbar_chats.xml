@@ -5,34 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_chats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background_app"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/Toolbar" >
+        android:theme="@style/Toolbar">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageContactsChat"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/default_user_image_width"
+            android:layout_height="@dimen/default_user_image_height"
             android:layout_gravity="start"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/padrao">
-
+            android:layout_marginEnd="@dimen/default_user_image_margin_end"
+            android:src="@drawable/standard">
         </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
             android:id="@+id/textContactsNameChat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User"
+            android:text="@string/user"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            >
+            android:textSize="@dimen/default_user_name_text_size"
+            android:textColor="@color/white">
         </TextView>
 
         </androidx.appcompat.widget.Toolbar>

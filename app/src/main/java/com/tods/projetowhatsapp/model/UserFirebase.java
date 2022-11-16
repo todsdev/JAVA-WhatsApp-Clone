@@ -16,11 +16,9 @@ import com.tods.projetowhatsapp.helper.Base64Custom;
 public class UserFirebase {
 
     public static String recoverUserId(){
-
         FirebaseAuth user = FirebaseSettings.getFirebaseAuth();
         String email = user.getCurrentUser().getEmail();
         String idUser = Base64Custom.codifyBase64(email);
-
         return idUser;
     }
 
@@ -30,9 +28,7 @@ public class UserFirebase {
     }
 
     public static boolean updateUserPhoto(Uri url){
-
         try {
-
             FirebaseUser user = getCurrentUser();
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder().setPhotoUri(url).build();
             user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -51,9 +47,7 @@ public class UserFirebase {
     }
 
     public static boolean updateUserName(String name){
-
         try{
-
             FirebaseUser user = getCurrentUser();
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder().setDisplayName(name).build();
             user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -72,12 +66,10 @@ public class UserFirebase {
     }
 
     public static User getDataLoggedUser(){
-
         FirebaseUser firebaseUser = getCurrentUser();
         User user = new User();
         user.setEmail(firebaseUser.getEmail());
         user.setName(firebaseUser.getDisplayName());
-
         if (firebaseUser.getPhotoUrl() == null){
             user.setPhoto("");
         } else {
@@ -85,5 +77,4 @@ public class UserFirebase {
         }
         return user;
     }
-
 }

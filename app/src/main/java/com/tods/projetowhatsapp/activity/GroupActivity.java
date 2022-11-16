@@ -47,59 +47,22 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+        configToolbar();
+        configInitialSettings();
+        configRecyclerView();
+        configRecyclerViewSelectedMember();
+        configFloatingActionButton();
+    }
 
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Novo grupo");
-        toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setSubtitleTextColor(Color.WHITE);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    private void configInitialSettings() {
         fab = findViewById(R.id.fab);
         recyclerMembers = findViewById(R.id.recyclerMembers);
         recyclerSelectedMember = findViewById(R.id.recyclerSelectedMembers);
-
         memberRef = FirebaseSettings.getFirebaseDatabase().child("user");
         actualUser = UserFirebase.getCurrentUser();
+    }
 
-        //CONFIGURAR ADAPTER
-        adapter = new ContactsAdapter(listMembers, getApplicationContext());
-
-        //CONFIGURAR RECYCLERVIEW
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerMembers.setLayoutManager(layoutManager);
-        recyclerMembers.setHasFixedSize(true);
-        recyclerMembers.setAdapter(adapter);
-        recyclerMembers.addOnItemTouchListener
-                (new RecyclerItemClickListener(getApplicationContext(), recyclerMembers, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-
-                        User selectedUser = listMembers.get(position);
-
-                        //REMOVER USUÁRIO SELECIONADO DA LISTA
-                        listMembers.remove(selectedUser);
-                        adapter.notifyDataSetChanged();
-
-                        //ADICIONANDO OS MEMBROS SELECIONADOS AO NOVO ARRAY
-                        listSelectedMembers.add(selectedUser);
-                        adapter_selected.notifyDataSetChanged();
-
-                        updateMembersToolbar();
-                    }
-
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-
-                    }
-
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                    }
-                }));
-
-        //CONFIGURAR RECYCLER PARA MEMBROS SELECIONADOS
+    private void configRecyclerViewSelectedMember() {
         adapter_selected = new SelectedGroupAdapter(listSelectedMembers, getApplicationContext());
         RecyclerView.LayoutManager layoutManagerHorizont = new LinearLayoutManager
                 (getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -111,30 +74,24 @@ public class GroupActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         User selectedUser = listSelectedMembers.get(position);
-
-                        //REMOVENDO DA LISTAGEM
                         listSelectedMembers.remove(selectedUser);
                         adapter_selected.notifyDataSetChanged();
-
-                        //ADICIONANDO LISTAGEM DE MEMBROS
                         listMembers.add(selectedUser);
                         adapter.notifyDataSetChanged();
-
                         updateMembersToolbar();
                     }
 
                     @Override
                     public void onLongItemClick(View view, int position) {
-
                     }
 
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                     }
                 }));
+    }
 
-        //CLICK DO FLOATING ACTION BUTTON
+    private void configFloatingActionButton() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,6 +100,43 @@ public class GroupActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void configRecyclerView() {
+        adapter = new ContactsAdapter(listMembers, getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerMembers.setLayoutManager(layoutManager);
+        recyclerMembers.setHasFixedSize(true);
+        recyclerMembers.setAdapter(adapter);
+        recyclerMembers.addOnItemTouchListener
+                (new RecyclerItemClickListener(getApplicationContext(), recyclerMembers, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        User selectedUser = listMembers.get(position);
+                        listMembers.remove(selectedUser);
+                        adapter.notifyDataSetChanged();
+                        listSelectedMembers.add(selectedUser);
+                        adapter_selected.notifyDataSetChanged();
+                        updateMembersToolbar();
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    }
+                }));
+    }
+
+    private void configToolbar() {
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Novo grupo");
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setSubtitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void recoverContacts(){

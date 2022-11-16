@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsFragment extends Fragment {
-
     private RecyclerView recyclerContacts;
     private ContactsAdapter adapter;
     private List<User> listContacts = new ArrayList<>();
@@ -68,22 +67,14 @@ public class ContactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
-
-        //CONFIGURAÇÕES INICIAIS
         recyclerContacts = view.findViewById(R.id.recyclerContacts);
         userRef = FirebaseSettings.getFirebaseDatabase().child("user");
         actualUser = UserFirebase.getCurrentUser();
+        configRecyclerView();
+        return configRecyclerViewClickEvent(view);
+    }
 
-        //CONFIGURAR ADAPTER
-        adapter = new ContactsAdapter(listContacts, getActivity());
-
-        //CONFIGURAR RECYCLER VIEW
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerContacts.setLayoutManager(layoutManager);
-        recyclerContacts.setHasFixedSize(true);
-        recyclerContacts.setAdapter(adapter);
-
-        //CONFIGURAR EVENTO DE CLIQUE NO RECYCLERVIEW
+    private View configRecyclerViewClickEvent(View view) {
         recyclerContacts.addOnItemTouchListener
                 (new RecyclerItemClickListener(getActivity(), recyclerContacts, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -114,19 +105,24 @@ public class ContactsFragment extends Fragment {
         return view;
     }
 
+    private void configRecyclerView() {
+        adapter = new ContactsAdapter(listContacts, getActivity());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerContacts.setLayoutManager(layoutManager);
+        recyclerContacts.setHasFixedSize(true);
+        recyclerContacts.setAdapter(adapter);
+    }
+
     public void recoverContacts(){
         velContacts = userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 clearContactList();
                 for (DataSnapshot data: snapshot.getChildren()){
-
                     User user = data.getValue(User.class);
-
                     String actualUserEmail = actualUser.getEmail();
                     if (!actualUserEmail.equals(user.getEmail())){
                         listContacts.add(user);
-
                     }
                 }
                 adapter.notifyDataSetChanged();
@@ -145,7 +141,6 @@ public class ContactsFragment extends Fragment {
     }
 
     public void addMenuNewGroup(){
-        //USANDO USUÁRIO MODIFICADO (SEM EMAIL) PARA DEFINIR CRIAÇÃO DE GRUPO
         User itemGroup = new User();
         itemGroup.setName("Novo grupo");
         itemGroup.setEmail("");

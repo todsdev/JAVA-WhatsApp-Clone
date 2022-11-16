@@ -6,4 +6,13 @@
     <string name="text_profile">Essas informações serão compartilhadas somente com seus contatos.</string>
     <string name="name">Nome</string>
     <string name="status">Status</string>
+    <string name="user">User</string>
+    <string name="nome">Name</string>
+    <string name="e_mail">Email</string>
+    <string name="message">Message</string>
+    <string name="group_name">Nome do grupo</string>
+    <string name="member_number">Participantes: 0</string>
+    <string name="sign_out">Sair</string>
+    <string name="profile">Perfil</string>
+    <string name="search">Search</string>
 </resources>

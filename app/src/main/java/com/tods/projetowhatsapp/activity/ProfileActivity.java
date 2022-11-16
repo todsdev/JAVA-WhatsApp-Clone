@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,7 +40,6 @@ import java.io.ByteArrayOutputStream;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
-
     private String[] permission = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA};
@@ -59,80 +57,74 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        configPermission();
+        configInitialSettings();
+        configToolbar();
+        configUserData();
+    }
 
-        //CONFIGURAÇÕES INICIAIS
+    private void configInitialSettings() {
         storageReference = FirebaseSettings.getStorageReference();
         userId = UserFirebase.recoverUserId();
         loggedUser = UserFirebase.getDataLoggedUser();
-
-        //VALIDAR PERMISSÕES
-        Permission.validatePermission(permission, this, 1);
-
         buttonCamera = findViewById(R.id.imageButtonCamera);
         buttonGallery = findViewById(R.id.imageButtonGallery);
         imageProfile = findViewById(R.id.profile_image);
         editName = findViewById(R.id.editProfileName);
         updateName = findViewById(R.id.imageUpdateName);
+    }
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Perfil");
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //RECUPERAR DADOS DO USUÁRIO
+    private void configUserData() {
         FirebaseUser user = UserFirebase.getCurrentUser();
         Uri url = user.getPhotoUrl();
         if (url != null){
             Glide.with(this).load(url).timeout(6000).into(imageProfile);
             Log.i("PHOTO", "URL: " + url);
         } else {
-            imageProfile.setImageResource(R.drawable.padrao);
+            imageProfile.setImageResource(R.drawable.standard);
         }
-
         editName.setText(user.getDisplayName());
-
         updateName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String name = editName.getText().toString();
                 boolean thereturn = UserFirebase.updateUserName(name);
                 if (thereturn){
-
                     loggedUser.setName(name);
                     loggedUser.update();
-
                     Toast.makeText(ProfileActivity.this, "Nome alterado com sucesso!",
                             Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
 
-    public void openGallery(View view){
+    private void configToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Perfil");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
+    private void configPermission() {
+        Permission.validatePermission(permission, this, 1);
+    }
+
+    public void openGallery(View view){
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityIfNeeded(i, SELECTION_GALLERY);
-
     }
 
     public void openCamera(View view){
-
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityIfNeeded(i, SELECTION_CAMERA);
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == RESULT_OK){
-
             Bitmap image = null;
-
             try {
                 switch (requestCode){
                     case SELECTION_CAMERA:
@@ -143,22 +135,15 @@ public class ProfileActivity extends AppCompatActivity {
                         image = MediaStore.Images.Media.getBitmap(getContentResolver(), localSelectedImage);
                         break;
                 }
-
                 if (image != null){
-
                     imageProfile.setImageBitmap(image);
-
-                    //RECUPERAR DADOS PARA O FIREBASE
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     image.compress(Bitmap.CompressFormat.JPEG, 75, baos);
                     byte[] dataImage = baos.toByteArray();
-
-                    //SALVAR IMAGEM NO FIREBASE
                     StorageReference imageRef = storageReference
                             .child("images")
                             .child("profile")
                             .child(userId + ".jpeg");
-
                     UploadTask upTask = imageRef.putBytes(dataImage);
                     upTask.addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -192,20 +177,17 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void updateUserPhoto(Uri url){
-
         boolean thereturn = UserFirebase.updateUserPhoto(url);
         if (thereturn){
             UserFirebase.updateUserPhoto(url);
             loggedUser.setPhoto(url.toString());
             loggedUser.update();
-
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         for (int permissonResults: grantResults){
             if (permissonResults == PackageManager.PERMISSION_DENIED){
                 alertValidatePermission();
@@ -214,7 +196,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void alertValidatePermission(){
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Permissões Negadas");
         builder.setMessage("Para utilizar o aplicativo é necessário aceitar as permissões");
@@ -227,6 +208,5 @@ public class ProfileActivity extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
 }

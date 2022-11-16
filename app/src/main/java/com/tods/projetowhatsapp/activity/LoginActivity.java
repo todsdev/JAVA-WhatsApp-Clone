@@ -21,7 +21,6 @@ import com.tods.projetowhatsapp.config.FirebaseSettings;
 import com.tods.projetowhatsapp.model.User;
 
 public class LoginActivity extends AppCompatActivity {
-
     private TextInputEditText userEmail, userPassword;
     private FirebaseAuth auth;
 
@@ -29,12 +28,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        configInitialSettings();
+    }
 
+    private void configInitialSettings() {
         userEmail = findViewById(R.id.editLoginEmail);
         userPassword = findViewById(R.id.editLoginPassword);
-
         auth = FirebaseSettings.getFirebaseAuth();
-
     }
 
     @Override
@@ -47,20 +47,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser(User user){
-
         auth.signInWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if (task.isSuccessful()){
-
                             Toast.makeText(LoginActivity.this, "Login feito com sucesso!",
                                     Toast.LENGTH_SHORT).show();
                             openMain();
-
                         } else {
-
                             String exception = "";
                             try {
                                 throw task.getException();
@@ -80,21 +75,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void validateAuthUser(View view){
-
-        //RECUPERAR TEXTOS DOS CAMPOS
         String email = userEmail.getText().toString();
         String password = userPassword.getText().toString();
-
-        //VALIDAR SE E-MAIL E SENHA FORAM DIGITADOS
         if (!email.isEmpty()){
             if (!password.isEmpty()){
-
                 User user = new User();
                 user.setEmail(email);
                 user.setPassword(password);
-
                 loginUser(user);
-
             } else {
                 Toast.makeText(this, "Preencha a senha!", Toast.LENGTH_SHORT).show();
             }

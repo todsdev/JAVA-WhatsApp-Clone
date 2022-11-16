@@ -4,7 +4,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.tods.projetowhatsapp.config.FirebaseSettings;
 
 public class Chat {
-
     private String idSender;
     private String idReceiver;
     private String lastMessage;
@@ -18,12 +17,9 @@ public class Chat {
     }
 
     public void save(){
-
         DatabaseReference database = FirebaseSettings.getFirebaseDatabase();
         DatabaseReference chatRef = database.child("chats");
-
         chatRef.child(this.getIdSender()).child(this.getIdReceiver()).setValue(this);
-
     }
 
     public String getIdSender() {
